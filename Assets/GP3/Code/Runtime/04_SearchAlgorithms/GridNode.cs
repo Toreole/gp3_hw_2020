@@ -9,28 +9,16 @@ namespace GP3._04_SearchAlgorithms
 	{
 		[SerializeField] private SpriteRenderer _image = default;
 		[SerializeField] private SpriteRenderer _searchStateImage = default;
+		[SerializeField]
+		private GridNodeSettings[] settings;
 
-		public float Cost
-		{
-			get
-			{
-				switch (_type)
-				{
-					case GridNodeType.Ground:
-						return 1;
-					case GridNodeType.Wall:
-						return int.MaxValue;
-					case GridNodeType.Water:
-						return 10;
-					default:
-						throw new ArgumentOutOfRangeException();
-				}
-			}
-		}
+		private int currentSettings;
+
+		public float Cost => settings[currentSettings].Cost;
 
 		public float CostSoFar { get; set; }
 		public IEnumerable<GridNode> Neighbours => _neighbours;
-		public bool IsWall => _type == GridNodeType.Wall;
+		public bool IsWall => float.IsInfinity(Cost);
 		public float Heuristic { get; set; }
 		private List<GridNode> _neighbours = new List<GridNode>();
 		private GridNodeType _type;
@@ -40,7 +28,6 @@ namespace GP3._04_SearchAlgorithms
 		{
 			Reset();
 			FindNeighbours();
-			SetGridNodeType(GridNodeType.Ground);
 			SetGridNodeSearchState(GridNodeSearchState.None);
 
 			_searchStateImage.enabled = false;
@@ -48,20 +35,8 @@ namespace GP3._04_SearchAlgorithms
 
 		private void OnMouseDown()
 		{
-			switch (_type)
-			{
-				case GridNodeType.Ground:
-					SetGridNodeType(GridNodeType.Wall);
-					break;
-				case GridNodeType.Wall:
-					SetGridNodeType(GridNodeType.Water);
-					break;
-				case GridNodeType.Water:
-					SetGridNodeType(GridNodeType.Ground);
-					break;
-				default:
-					throw new ArgumentOutOfRangeException();
-			}
+			currentSettings = (currentSettings+1) % settings.Length;
+			_image.color = settings[currentSettings].Color;
 		}
 
 		public void Reset()
@@ -90,25 +65,6 @@ namespace GP3._04_SearchAlgorithms
 					break;
 				default:
 					throw new ArgumentOutOfRangeException(nameof(state), state, null);
-			}
-		}
-
-		private void SetGridNodeType(GridNodeType type)
-		{
-			_type = type;
-			switch (type)
-			{
-				case GridNodeType.Ground:
-					_image.color = BreadthFirstSearchSettings.Instance.GroundNodeColor;
-					break;
-				case GridNodeType.Wall:
-					_image.color = BreadthFirstSearchSettings.Instance.WallNodeColor;
-					break;
-				case GridNodeType.Water:
-					_image.color = BreadthFirstSearchSettings.Instance.WaterNodeColor;
-					break;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(type), type, null);
 			}
 		}
 

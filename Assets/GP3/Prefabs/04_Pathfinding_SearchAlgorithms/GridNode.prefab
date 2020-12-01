@@ -179,6 +179,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 7527209869462621226}
   _searchStateImage: {fileID: 9211035808592994283}
+  settings:
+  - {fileID: 11400000, guid: 61ba2333bc07cd942ada3e6acc566fb6, type: 2}
+  - {fileID: 11400000, guid: 736e57c0ba7ddc14d95c7ea0a57291ae, type: 2}
+  - {fileID: 11400000, guid: 97ff65c2b0565c746986560797acadfc, type: 2}
+  - {fileID: 11400000, guid: de661b484c36d8c44ac122f289b7f2fc, type: 2}
 --- !u!61 &-8140420534467179871
 BoxCollider2D:
   m_ObjectHideFlags: 0
