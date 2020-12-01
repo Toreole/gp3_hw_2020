@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 400827130}
   - component: {fileID: 400827129}
   - component: {fileID: 400827128}
+  - component: {fileID: 400827131}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -170,7 +171,7 @@ MonoBehaviour:
     type: 3}
   _endMarkerPrefab: {fileID: 5202235476441573626, guid: b150eed3ba743e143a5e8ab2e5a9c8bc,
     type: 3}
-  _searchAlgorithm: {fileID: 400827128}
+  _searchAlgorithm: {fileID: 400827131}
   _width: 10
   _height: 10
 --- !u!4 &400827130
@@ -187,6 +188,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &400827131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400827127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea86c96f68d285e43be7ccda86d5f429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animate: 0
+  _timeBetweenSteps: 0.2
 --- !u!1 &887376601
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,7 +42,7 @@ namespace GP3._04_SearchAlgorithms
 		public void Reset()
 		{
 			SetGridNodeSearchState(GridNodeSearchState.None);
-			CostSoFar = -1000;
+			CostSoFar = float.PositiveInfinity; //was -1000 before, but A* requires this to be infinite
 		}
 
 		public void SetGridNodeSearchState(GridNodeSearchState state)

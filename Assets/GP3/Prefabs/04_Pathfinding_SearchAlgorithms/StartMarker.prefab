@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7813044745944056968}
   - component: {fileID: 5853982381030109028}
   - component: {fileID: 8612845383907715084}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: StartMarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d61b4d422bd4965a20e365d5ed6d458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!61 &8612845383907715084
 BoxCollider2D:
   m_ObjectHideFlags: 0

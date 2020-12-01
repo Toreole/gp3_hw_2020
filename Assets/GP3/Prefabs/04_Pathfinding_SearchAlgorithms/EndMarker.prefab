@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2438329785830353895}
   - component: {fileID: 5202235476441573626}
   - component: {fileID: 1676152177730808207}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EndMarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d61b4d422bd4965a20e365d5ed6d458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!61 &1676152177730808207
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ namespace GP3._04_SearchAlgorithms
 {
 	public class Marker : MonoBehaviour
 	{
+		[SerializeField]
+		protected LayerMask layerMask;
 		public static event Action MarkerMoved;
 		
 		private GridNode _closestGridNode;
@@ -32,7 +34,7 @@ namespace GP3._04_SearchAlgorithms
 
 		public void SetToClosestGridNode()
 		{
-			Collider2D overlapCircle = Physics2D.OverlapCircleAll(transform.position, transform.localScale.x, ~LayerMask.NameToLayer("Grid")).OrderBy(c => (transform.position - c.transform.position).sqrMagnitude).FirstOrDefault();
+			Collider2D overlapCircle = Physics2D.OverlapCircleAll(transform.position, transform.localScale.x, layerMask).OrderBy(c => (transform.position - c.transform.position).sqrMagnitude).FirstOrDefault();
 			transform.position = overlapCircle.transform.position;
 			_closestGridNode = overlapCircle.transform.GetComponent<GridNode>();
 		}

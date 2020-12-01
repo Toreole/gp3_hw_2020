@@ -21,7 +21,7 @@ namespace GP3._04_SearchAlgorithms
 		{
 			if (_animate)
 			{
-				StartCoroutine((IEnumerator) SearchInternalCoroutine());
+				StartCoroutine(SearchInternalCoroutine());
 			}
 			else
 			{
