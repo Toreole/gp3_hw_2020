@@ -508,7 +508,7 @@ PrefabInstance:
     - target: {fileID: 20494501241764970, guid: 1fac0dae54de3224181696b709bb4d66,
         type: 3}
       propertyPath: near clip plane
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 114203780446379988, guid: 1fac0dae54de3224181696b709bb4d66,
         type: 3}
@@ -715,6 +715,7 @@ MonoBehaviour:
     type: 3}
   _questTaskDoneStateMesh: {fileID: 6314853597366507300, guid: 401d57afba30dbe4691d84cb61c03dbb,
     type: 3}
+  questTime: 5
 --- !u!1001 &1925418600
 PrefabInstance:
   m_ObjectHideFlags: 0

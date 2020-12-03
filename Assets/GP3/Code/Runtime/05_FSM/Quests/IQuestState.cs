@@ -42,6 +42,8 @@ namespace UEGP3.FSM.Quests
 			{
 				return QuestNPC.QuestTaskDoneState;
 			}
+			if(Time.time - npc.QuestStartTime > npc.QuestTime)
+				return QuestNPC.QuestFailState;
 
 			return QuestNPC.QuestActiveState;
 		}
@@ -50,6 +52,7 @@ namespace UEGP3.FSM.Quests
 		{
 			npc.QuestItem.Activate();
 			npc.SetNPCAnswer("Remember to bring me my item please");
+			npc.QuestStartTime = Time.time;
 		}
 
 		public void Exit(QuestNPC npc)
@@ -98,5 +101,20 @@ namespace UEGP3.FSM.Quests
 		public void Exit(QuestNPC npc)
 		{
 		}
+	}
+
+	public class QuestFailState : IQuestState
+	{
+		public IQuestState Execute(QuestNPC npc)
+		{
+			return this;
+		}
+
+		public void Enter(QuestNPC npc)
+		{
+			npc.SetNPCAnswer("You're too slow!");
+		}
+
+		public void Exit(QuestNPC nPC){}
 	}
 }

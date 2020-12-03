@@ -15,11 +15,14 @@ namespace UEGP3.FSM.Quests
 		private GameObject _availableStateMesh;
 		[SerializeField] [Tooltip("Quests Icon shown quest task done state")]
 		private GameObject _questTaskDoneStateMesh;
+		[SerializeField, Tooltip("How long the player has to complete the quest")]
+		private float questTime;
 
 		public static QuestAvailableState QuestAvailableState = new QuestAvailableState();
 		public static QuestActiveState QuestActiveState = new QuestActiveState();
 		public static QuestTaskDoneState QuestTaskDoneState = new QuestTaskDoneState();
 		public static QuestDoneState QuestDoneState = new QuestDoneState();
+		public static QuestFailState QuestFailState = new QuestFailState();
 		
 		private IQuestState _currentState;
 		private GameObject _currentQuestMarker;
@@ -28,6 +31,8 @@ namespace UEGP3.FSM.Quests
 		public GameObject AvailableStateMesh => _availableStateMesh;
 		public GameObject QuestTaskDoneStateMesh => _questTaskDoneStateMesh;
 		public QuestItem QuestItem => _questItem;
+		public float QuestTime => questTime;
+		public float QuestStartTime {get; set;} = 0;
 
 		private void Awake()
 		{
